@@ -1,18 +1,26 @@
 {
-    "extends": [
-        "react-app",
-        "react-app/jest",
-        "airbnb", 
-        "prettier"
-    ],
-    "rules" : {
-        "semi" : "warn",
-        "no-var" : 1,
-        "prefer-const": "error",
-        "react/react-in-jsx-scope":"off",
-        "react/jsx-filename-extension":[1,{"extensions" :[".js",".jsx"] }],
-        "react/function-component-definition" : "off"
-
-        
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "airbnb",
+    "prettier",
+    "plugin:import/warnings"
+  ],
+  "rules": {
+    "semi": "warn",
+    "no-var": 1,
+    "prefer-const": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/function-component-definition": "off",
+    "import/prefer-default-export": "off",
+    "no-restricted-exports": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
+      }
     }
+  }
 }

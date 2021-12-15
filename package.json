@@ -8,7 +8,10 @@
         "@testing-library/user-event": "^13.5.0",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "react-router": "^6.1.1",
+        "react-router-dom": "^6.1.1",
         "react-scripts": "5.0.0",
+        "styled-components": "^5.3.3",
         "web-vitals": "^2.1.2"
     },
     "scripts": {
@@ -34,6 +37,7 @@
         ]
     },
     "devDependencies": {
+        "create-react-component-folder": "^0.3.7",
         "eslint": "^8.2.0",
         "eslint-config-airbnb": "^19.0.2",
         "eslint-config-prettier": "^8.3.0",
@@ -44,7 +48,16 @@
         "eslint-plugin-react-hooks": "^4.3.0",
         "husky": "^7.0.4",
         "lint-staged": "^12.1.2",
-        "prettier": "^2.5.1"
+        "prettier": "^2.5.1",
+        "prop-types": "^15.7.2"
+    },
+    "crcf": [
+        {
+            "output": "src/components/"
+        }
+    ],
+    "alias": {
+        "#components": "./src/components"
     },
     "lint-staged": {
         "src/*/{js,jsx}": [
