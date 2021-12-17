@@ -5,35 +5,34 @@
 ** Alan Medina Silva
 ** ========================================================================== */
 
-// import React, {Fragment} from "react";
+
 import {
     BrowserRouter,
     Route,
     // Navigate,
     Routes
 } from "react-router-dom";
-// import { Home } from 'views';
+
+import WhiteTheme from 'themes/WhiteModeTheme';
+import { CharactersProvider } from "providers/CharactersProvider";
 import appRoutes from 'router';
-import './App.css';
+
 
 const App = () => (
-    <div>
-        <BrowserRouter>
-            <Routes>
-                {/* <Route path="/" element={<Home />} /> */}
-                {
-                    appRoutes.map((route) => (
-                        // if (route.redirect)
-                        //     return <Navigate from={route.path} to={route.to} key={route.routeName} />;
+    <CharactersProvider>
+        <WhiteTheme>
+            <BrowserRouter>
+                <Routes>
 
-
-                        <Route path="/" element={route.component} />
-
-                    ))
-                }
-            </Routes>
-        </BrowserRouter>
-    </div>
+                    {
+                        appRoutes.map((route) => (
+                            <Route path="/" element={route.component} key={route.routeName} />
+                        ))
+                    }
+                </Routes>
+            </BrowserRouter>
+        </WhiteTheme>
+    </CharactersProvider>
 );
 
 export default App;

@@ -5,9 +5,8 @@
 ** Alan Medina Silva
 ** ========================================================================== */
 
-// import {Home} from 'views';
 import { Home } from 'views';
-// const appPath = '';
+
 
 const appRoutes = [
     {

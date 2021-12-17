@@ -1,15 +1,12 @@
 /* ==========================================================================
-** Atoms Import/Exports Controller
+** Pages Styles
 ** 15/12/2021
 ** Alan Medina Silva
 ** ========================================================================== */
 
-import Button from './button';
-import InputText from './inputText';
-import Title from './title';
+import styled from 'styled-components';
+import { container } from 'shared/globalStyled';
 
-export {
-    Button,
-    InputText,
-    Title
-}
+export const PageContainerStyled = styled(container)`
+    border-radius : 1px;
+`;
