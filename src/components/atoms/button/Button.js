@@ -32,35 +32,32 @@ const button = ({
   isDisabled = false,
   blockEvents = false,
   useLowercase = false
-}) => {
-  console.log("🚀 ~ file: button.js ~ line 14 ~ buttonStyled", ButtonStyled);
-  return (
-    <ButtonStyled
-      type={type}
-      onClick={onClick}
-      id={id}
-      size={size}
-      disabled={isDisabled}
-      loadingData={loadingData}
-      blockEvents={blockEvents}
-      useLowercase={useLowercase} >
+}) => (
+  <ButtonStyled
+    type={type}
+    onClick={onClick}
+    id={id}
+    size={size}
+    disabled={isDisabled}
+    loadingData={loadingData}
+    blockEvents={blockEvents}
+    useLowercase={useLowercase} >
 
-      {
-        loadingData === false && title
-      }
-      {
-        loadingData &&
-        <Loader
-          type="Oval"
-          color="#fff"
-          height={30}
-          width={30}
-          className="loadingButtonContainer"
-        />
-      }
-    </ButtonStyled>
-  );
-};
+    {
+      loadingData === false && title
+    }
+    {
+      loadingData &&
+      <Loader
+        type="Oval"
+        color="#fff"
+        height={30}
+        width={30}
+        className="loadingButtonContainer"
+      />
+    }
+  </ButtonStyled>
+);
 // -------------------------------------- 
 // Define PropTypes 
 // -------------------------------------- 

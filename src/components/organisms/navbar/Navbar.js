@@ -3,6 +3,7 @@
 // --------------------------------------
 import React from 'react';
 // import PropTypes from 'prop-types';
+import logo from 'assets/logo.png';
 import { NavbarContainerStyled, NavbarContentStyled } from './NavbarStyled';
 /**
 * navbar Component
@@ -16,12 +17,11 @@ const Navbar = (props) => {
   return (
     <NavbarContainerStyled as="nav" >
       <NavbarContentStyled>
-        input search
-        button
+        <img src={logo} alt="Rick and Morty Api client" />
       </NavbarContentStyled>
     </NavbarContainerStyled>
-  )
-}
+  );
+};
 // -------------------------------------- 
 // Define PropTypes 
 // -------------------------------------- 

@@ -29,8 +29,6 @@ export const actionsTypes = {
 // action contains the type and payload (data)
 // --------------------------------------
 export const charactersReducer = (state, action) => {
-    console.log("🚀 ~ file: CharactersReducer.js ~ line 32 ~ charactersReducer ~ state", state);
-    console.log("🚀 ~ file: CharactersReducer.js ~ line 32 ~ charactersReducer ~ action", action);
     switch (action.type) {
         case actionsTypes.setCharactersData:
             return { ...state, charactersData: action.payload };

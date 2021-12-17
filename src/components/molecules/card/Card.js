@@ -18,7 +18,7 @@ import { CardContainerStyled } from './CardStyled';
 * @example
 * <card/>
 */
-const card = ({ image, title, onClick }) => {
+const Card = ({ image, title, onClick }) => {
 
   const onCardClick = () => { onClick(); };
 
@@ -27,12 +27,24 @@ const card = ({ image, title, onClick }) => {
       <img src={image} alt={title} />
       <Title titleText={title} type="s" />
     </CardContainerStyled>
-  )
-}
+  );
+};
+
+// -------------------------------------- 
+// Default Props
+// -------------------------------------- 
+Card.defaultProps = {
+  image: '',
+  title: '',
+  onClick: null
+
+};
+
+
 // -------------------------------------- 
 // Define PropTypes 
 // -------------------------------------- 
-card.propTypes = {
+Card.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
   onClick: PropTypes.func
@@ -41,4 +53,4 @@ card.propTypes = {
 // --------------------------------------
 // Export Component
 // --------------------------------------
-export default card;
+export default Card;

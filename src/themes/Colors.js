@@ -5,9 +5,10 @@
 ** ========================================================================== */
 
 const colors = {
-    base: '#e9eef4',
-    main: '#49a3f1',
-    whiteText: '#fff'
+    base: '#dce1df47',
+    main: '#00afc6',
+    accent: '#98d18e',
+    whiteText: '#fff',
 };
 
 export default colors;

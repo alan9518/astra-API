@@ -71,7 +71,7 @@ export const ButtonStyled = styled.button`
     font-family : ${props => props.theme.fonts.base};
     font-size: ${props => props.theme.fontSizes[props.size]};
     background-color : ${props => props.theme.colors.mainColor};
-    color : ${props => props.theme.colors.white.base};
+    color : ${props => props.theme.colors.whiteText};
     ${props => {
         if (props.disabled) {
             return `
@@ -102,7 +102,7 @@ export const ButtonStyled = styled.button`
     `}
 
     &:hover {
-        background-color : ${props => props.theme.colors[props.type].hover};
+        background-color : ${props => props.theme.colors.main};
         
     }
 
@@ -114,12 +114,5 @@ export const ButtonStyled = styled.button`
     }
 
 
-    @media only screen 
-    and ${props => props.theme.devices.mobileS}
-    and ${props => props.theme.devices.mobileMax}
-    and (orientation: portrait) 
-    {
-        ${props => props.size === 'large' && css`font-size: ${props => props.theme.fontSizes.medium};`}
-    }
 `;
 

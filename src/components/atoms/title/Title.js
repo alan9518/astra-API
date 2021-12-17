@@ -22,6 +22,7 @@ const Title = ({
     type = "",
     color = "darkBlack",
 }) => {
+    console.log("🚀 ~ file: Title.js ~ line 25 ~ size", size);
 
 
 

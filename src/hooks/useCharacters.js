@@ -33,6 +33,11 @@ const useCharacters = () => {
     }, []);
 
 
+    const updateSelectedCharacterState = useCallback((newSelectedChart) => {
+        dispatch({ type: actionsTypes.setSelectedCharacter, payload: newSelectedChart });
+    }, []);
+
+
     // ?--------------------------------------
     // ? Get all the charcters
     // ? useCallback improves performance
@@ -43,19 +48,22 @@ const useCharacters = () => {
         const [charactersPromiseData, charactersPromiseError] = await getCharacters(characterID);
 
         // Handle connectivity errors
-        // if (charactersPromiseError (charactersPromiseError.error && charactersPromiseError.error.response.status === 401) || charactersPromiseError) {
         if (charactersPromiseError) {
             setCharactersDataStatus({ loading: false, error: 'Error loading the characters, plese try again later' });
-            // return null;
+
             updateCharactersState(null);
         }
-
-        // return charactersPromiseData.data;
 
         updateCharactersState(charactersPromiseData.data);
 
     }, []);
 
+
+
+
+    const setSelectedCharacter = useCallback((characterData) => {
+        updateSelectedCharacterState(characterData);
+    }, []);
 
 
 
@@ -65,9 +73,12 @@ const useCharacters = () => {
     // ?--------------------------------------
     return {
         getCharactersData,
+        setSelectedCharacter,
+        charactersDataLoading: charactersDataStatus.loading,
         charactersDataStatus,
         charactersData,
-        selectedCharacter
+        selectedCharacter,
+
     };
 };
 

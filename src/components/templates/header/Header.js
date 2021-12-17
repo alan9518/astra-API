@@ -9,8 +9,8 @@
 // Get Dependences
 // --------------------------------------
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { Navbar } from 'components/organisms';
+
 /**
 * header Component
 * 
@@ -18,14 +18,11 @@ import { Navbar } from 'components/organisms';
 * @example
 * <header/>
 */
-const header = (props) => {
-  console.log("🚀 ~ file: header.js ~ line 21 ~ header ~ props", props);
-  return (
-    <header >
-      <Navbar />
-    </header>
-  )
-}
+const header = () => (
+  <header >
+    <Navbar />
+  </header>
+)
 // -------------------------------------- 
 // Define PropTypes 
 // -------------------------------------- 
