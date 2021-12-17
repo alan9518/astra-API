@@ -4,11 +4,11 @@
 ** 15/12/2021
 ** Alan Medina Silva
 ** ========================================================================== */
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { flexContainerColumnCenter } from 'shared/globalStyled';
 
 export const CardContainerStyled = styled(flexContainerColumnCenter)`
-    width: 22%;
+    width: '22%'; 
     min-height : 180px;
     border-radius: 5px;
     flex: 1;
@@ -22,20 +22,39 @@ export const CardContainerStyled = styled(flexContainerColumnCenter)`
     transition: all 0.1s ease-in;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor:pointer;
-    text-align: center;
-        font-weight : 600;
-        margin-top:0.6em;
-        color: #00afc6;
+
+   
+    
     &:hover {
         top: -2px;
         box-shadow: ${props => props.theme.hoverBoxShadow};
 
     }
 
+    h4,p {
+        text-align: center;
+        font-weight : 600;
+        margin-top:0.6em;
+        color: ${props => props.theme.colors.mainColor};
+    }
+
     img {
         object-fit: contain;
         height: 100px;
+        border-radius: 50%;
     }
+
+    ${props => props.bigCard === true && css`
+        width : 100%;
+        min-height : 450px;
+        background-color :transparent;
+
+        img {
+            object-fit: contain;
+            height: 300px;
+            border-radius: 50%;
+        }
+    `}
 
 
 

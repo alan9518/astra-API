@@ -34,7 +34,7 @@ const useCharacters = () => {
 
 
     const updateSelectedCharacterState = useCallback((newSelectedChart) => {
-        dispatch({ type: actionsTypes.setSelectedCharacter, payload: newSelectedChart });
+        dispatch({ type: 'SET_SELECTED_CHARACTER', payload: newSelectedChart });
     }, []);
 
 

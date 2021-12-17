@@ -23,6 +23,7 @@ const Home = () => {
     // ?--------------------------------------
     const {
         getCharactersData,
+        setSelectedCharacter,
         // charactersDataStatus,
         charactersData,
         selectedCharacter,
@@ -43,6 +44,9 @@ const Home = () => {
         })();
 
     }, []);
+
+
+    // const onCharacterCardClick = () => { setSelectedCharacter() };
 
 
 
@@ -66,6 +70,7 @@ const Home = () => {
                     <CharactersArea
                         charactersData={charactersData}
                         selectedCharacter={selectedCharacter}
+                        onCharacterCardClick={setSelectedCharacter}
                     />
 
 

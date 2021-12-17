@@ -33,7 +33,7 @@ export const charactersReducer = (state, action) => {
         case actionsTypes.setCharactersData:
             return { ...state, charactersData: action.payload };
         case actionsTypes.setSelectedCharacter:
-            return { ...state, setSelectedCharacter: action.payload };
+            return { ...state, selectedCharacter: action.payload };
         default:
             return state;
     }

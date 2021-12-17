@@ -20,6 +20,8 @@ export const CharactersRow = styled(flexContainerRowSpaceBetween)``;
 
 export const CharactersColumn = styled(flexContainerColumnCenter)`
     max-width : ${props => props.width ? props.width : '100%'};
+    width: 100%;
+    height: 100%;
 `;
 
 

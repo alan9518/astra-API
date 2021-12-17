@@ -16,7 +16,7 @@ const theme = {
         baseColor: colors.base,
         mainColor: colors.main,
         accentColor: colors.accent,
-        whiteText: colors.whiteText
+        whiteText: colors.whiteText,
     },
     fonts: { main: "Roboto", base: "Lato" },
     fontSizes: {
@@ -26,6 +26,7 @@ const theme = {
     },
     borderRadius: '5px',
     borderRadiusBig: '16px',
+    hoverBoxShadow: '0 4px 5px rgba(0, 0, 0, 0.2)'
 
 };
 

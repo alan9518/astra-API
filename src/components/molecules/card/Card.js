@@ -18,14 +18,18 @@ import { CardContainerStyled } from './CardStyled';
 * @example
 * <card/>
 */
-const Card = ({ image, title, onClick }) => {
+const Card = ({ cardData, onCardClick, bigCard = false }) => {
+  const { image, name } = cardData;
 
-  const onCardClick = () => { onClick(); };
+  const onClickEvent = () => {
+    console.log("🚀 ~ file: card.js ~ line 23 ~ Card ~ cardData", cardData);
+    onCardClick(cardData);
+  };
 
   return (
-    <CardContainerStyled as='article' onClick={onCardClick}>
-      <img src={image} alt={title} />
-      <Title titleText={title} type="s" />
+    <CardContainerStyled as='article' onClick={onClickEvent} bigCard={bigCard}>
+      <img src={image} alt={name} />
+      <Title titleText={name} type="s" />
     </CardContainerStyled>
   );
 };
@@ -34,10 +38,9 @@ const Card = ({ image, title, onClick }) => {
 // Default Props
 // -------------------------------------- 
 Card.defaultProps = {
-  image: '',
-  title: '',
-  onClick: null
-
+  cardData: null,
+  onCardClick: null,
+  bigCard: false
 };
 
 
@@ -45,10 +48,9 @@ Card.defaultProps = {
 // Define PropTypes 
 // -------------------------------------- 
 Card.propTypes = {
-  image: PropTypes.string,
-  title: PropTypes.string,
-  onClick: PropTypes.func
-
+  cardData: PropTypes.object,
+  onCardClick: PropTypes.func,
+  bigCard: PropTypes.bool,
 };
 // --------------------------------------
 // Export Component

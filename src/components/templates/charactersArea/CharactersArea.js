@@ -11,6 +11,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'components/molecules';
+import noCharacterSelected from 'assets/noCharacterSelected.jpeg';
 import {
     CharactersGridContainer,
     CharactersRow,
@@ -24,7 +25,10 @@ import {
 * @example
 * <CharactersArea/>
 */
-const CharactersArea = ({ charactersData, selectedCharacter }) => {
+const CharactersArea = ({ charactersData, selectedCharacter, onCharacterCardClick }) => {
+
+    console.log("🚀 ~ file: CharactersArea.js ~ line 29 ~ CharactersArea ~ selectedCharacter", selectedCharacter);
+
 
 
     // ?--------------------------------------
@@ -35,21 +39,29 @@ const CharactersArea = ({ charactersData, selectedCharacter }) => {
             return null;
 
         return charactersData && charactersData.map((character) => {
-            const { image, id, name } = character;
+            const { id } = character;
             return (
-                <Card image={image} title={name} key={id} />
+                <Card cardData={character} key={id} onCardClick={onCharacterCardClick} />
             );
         });
 
     };
 
+    const renderSelectedCharacterInfo = () => {
+        let componentToRender = null;
+        if (!selectedCharacter)
+            componentToRender = <Card cardData={{ image: noCharacterSelected, name: 'No Character Selected' }} bigCard />;
+        else
+            componentToRender = <Card cardData={selectedCharacter} bigCard />;
+
+        return componentToRender;
+    }
+
     return (
         <CharactersGridContainer>
             <CharactersRow>
                 <CharactersColumn width="40%">
-                    <div className="emptyArea">
-                        {selectedCharacter !== null ? 'char' : 'empty'}
-                    </div>
+                    {renderSelectedCharacterInfo()}
                 </CharactersColumn>
 
                 <CharactersColumn width="60%">
