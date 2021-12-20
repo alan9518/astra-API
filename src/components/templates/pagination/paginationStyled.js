@@ -20,7 +20,7 @@ export const PaginationContainerStyled = styled(flexContainerRowCenterEnd)`
     span {
         font-size: ${props => props.theme.fontSizes.big};
         font-weight: 600;
-        margin-top: 0.6em;
+        margin: 1em;
         cursor : pointer;
         color: ${props => props.theme.colors.mainColor};
     }
@@ -28,7 +28,7 @@ export const PaginationContainerStyled = styled(flexContainerRowCenterEnd)`
     
 
 
-    @media only screen 
+    @media screen 
     and (min-width : 320px)
     and (max-width : 720px)
     and (orientation: portrait) 
@@ -39,7 +39,7 @@ export const PaginationContainerStyled = styled(flexContainerRowCenterEnd)`
         margin: 1rem auto;
     }
 
-    @media only screen 
+    @media screen 
     and (min-width:720px)
     and (max-width:1024px) 
     {

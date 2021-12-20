@@ -23,9 +23,7 @@ const useCharacters = () => {
     });
 
     const { charactersState, dispatch } = useCharactersDataContext();
-    const { charactersData, charactersMetaData, selectedCharacter, searchValue, currentPage } = charactersState;
-    console.log("🚀 ~ file: useCharacters.js ~ line 27 ~ useCharacters ~ currentPage", currentPage);
-
+    const { charactersData, charactersMetaData, selectedCharacter, searchValue } = charactersState;
 
 
     // ?--------------------------------------
@@ -57,6 +55,7 @@ const useCharacters = () => {
     // ? Get all the charcters
     // ? useCallback improves performance
     // ? by only calling the function with a manual triger
+    // ? based on the list of dependences
     // ?--------------------------------------
     const getCharactersData = useCallback(async (characterID = null, filterOption = '', newPageUrl = '') => {
 
@@ -97,12 +96,12 @@ const useCharacters = () => {
     }, []);
 
 
-
+    // ?--------------------------------------
+    // ? Change Page and load new Data
+    // ?--------------------------------------
     const goToPage = useCallback(async (newPageUrl) => {
-
         setCharactersDataStatus({ loading: true, error: '' });
         await getCharactersData(null, null, newPageUrl);
-
     }, []);
 
 

@@ -14,7 +14,13 @@ const appRoutes = [
         component: <Home />,
         routeName: 'homePage',
         exact: true
-    }
+    },
+    {
+        redirect: true,
+        path: '/',
+        to: `/`,
+        routeName: 'homeRedirect',
+    },
 ];
 
 

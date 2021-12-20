@@ -48,12 +48,12 @@ export const flexContainerRowCenter = styled(flexContainerRow)`
 export const flexContainerColumnStartCenter = styled(flexContainerColumn)`
     justify-content: center;
     align-items:start;
-`
+`;
 
 export const flexContainerColumnCenter = styled(flexContainerColumn)`
     justify-content: center;
     align-items:center;
-`
+`;
 
 export const flexContainerRowCenterSpacedBetween = styled(flexContainerRow)`
     justify-content: space-between;

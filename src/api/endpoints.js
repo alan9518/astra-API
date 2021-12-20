@@ -5,7 +5,7 @@
 ** Alan Medina Silva
 ** ========================================================================== */
 
-const apiDomain = process.env.REACT_APP_API_DOMAIN
+const apiDomain = process.env.REACT_APP_API_DOMAIN;
 
 const endpoints = {
 

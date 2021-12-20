@@ -1,0 +1,96 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Rick_And_Morty",
+  "steps": [
+    {
+      "file": "sample.env",
+      "description": "This file is a copy of the .env, the first step to run the app, after the npm install is copy this contents into a new .env file at root level, here you can add the app secrets like api keys and such, in private repos.",
+      "line": 1
+    },
+    {
+      "file": "jsconfig.json",
+      "description": "This file enables the option to use absolute imports trought the entrire app, instead of moving betwwen directories, you can call them directly from any file eg. 'import somehting form components' instead of 'import something from '../../../components'.\r\n",
+      "line": 1
+    },
+    {
+      "file": ".prettierrc",
+      "description": "This prettiier settings are for the prettier plugin, this formats the code after saving to keep a continual format on the files.\r\nhttps://prettier.io/docs/en/configuration.html",
+      "line": 1
+    },
+    {
+      "file": ".prettierignore",
+      "description": "This file sets exceptions for the prettier extension, this wont be formatted.",
+      "line": 1
+    },
+    {
+      "file": ".eslintrc.json",
+      "description": "This file contains the es lint rules applied to the project, the project is using the airbnbn style guideset with customizations, this rules are applied as warnings or error in the code.\r\n\r\nhttps://github.com/airbnb/javascript",
+      "line": 1
+    },
+    {
+      "file": "package.json",
+      "description": "This extension allows to create components directly from the command line using the command npx crcf folder/component",
+      "line": 58
+    },
+    {
+      "file": "src/router/Router.js",
+      "description": "This file holds the definition of the app routes connected with react-router, this array gets mapped in the app.js file to render dinamically the routes in the app, to add a new route, just a new object in this array with its correspondet component.\r\n",
+      "line": 8
+    },
+    {
+      "file": "src/themes/WhiteModeTheme.js",
+      "description": "This file has the theme definition for the app, is using the styled-components library to create a universal theme that can be used for all the components.",
+      "line": 8
+    },
+    {
+      "file": "src/api/endpoints.js",
+      "description": "This file contains the definition the endpoints used to connect to the API, add new endpoint to the object to expand the api connection",
+      "line": 8
+    },
+    {
+      "file": "src/themes/Colors.js",
+      "description": "This file has the definition of the colors used by the app.",
+      "line": 7
+    },
+    {
+      "file": "src/shared/globalStyled.js",
+      "description": "Global reusable flex styles",
+      "line": 8
+    },
+    {
+      "file": "src/shared/services.js",
+      "description": "Custom axios setup thats used by the services, you can add middlewares here or any extension to axios.",
+      "line": 8
+    },
+    {
+      "file": "src/contexts/CharactersContext.js",
+      "description": "This file enables a global state by having a context across the whole platform.",
+      "line": 12
+    },
+    {
+      "file": "src/providers/CharactersProvider.js",
+      "description": "The provider wraps the app at the desired level, allowing so share the state between its children.",
+      "line": 7
+    },
+    {
+      "file": "src/reducers/CharactersReducer.js",
+      "description": "The reducer sets the actions and state manipulation, to add a new value to the state, add it to the inital state object, set an action to manipulate it and the state changes to the chractersReducer",
+      "line": 11
+    },
+    {
+      "file": "src/hooks/useCharacters.js",
+      "description": "This hook abstract the logic of the Characters to a unique component that can be used by any other of the app.",
+      "line": 14
+    },
+    {
+      "file": "src/App.js",
+      "description": "The App.js is the main point of the app, this calls the contexts, providers and routes.",
+      "line": 38
+    },
+    {
+      "file": "src/views/home/Home.js",
+      "description": "The components in the views folder are the pages of the app, these are the components of higher level, this connect to the global state, creates event listeners that are passed to a maximum of two children, more that that require another kind of architecture ",
+      "line": 26
+    }
+  ]
+}

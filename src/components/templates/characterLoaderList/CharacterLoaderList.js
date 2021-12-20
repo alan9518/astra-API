@@ -18,18 +18,15 @@ import Skeleton from 'react-loading-skeleton';
 * @example
 * <CharacterLoaderList/>
 */
-const CharacterLoaderList = () => {
-    console.log("🚀 ~ file: CharacterLoaderList.js ~ line 20 ~ CharacterLoaderList ~ props");
-    return (
-        <section>
-            <h2 className="section-title">
-                <Skeleton duration={1} height={30} width={300} />
-            </h2>
+const CharacterLoaderList = () => (
+    <section>
+        <h2 className="section-title">
+            <Skeleton duration={1} height={30} width={300} />
+        </h2>
 
 
-        </section>
-    );
-}
+    </section>
+);
 // -------------------------------------- 
 // Define PropTypes 
 // -------------------------------------- 

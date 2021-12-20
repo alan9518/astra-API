@@ -40,7 +40,7 @@ const Home = () => {
         charactersDataLoadingError,
         searchValue
     } = useCharacters();
-    // console.log("🚀 ~ file: Home.js ~ line 34 ~ Home ~ charactersDataLoading", charactersDataLoading);
+
 
 
     // ?--------------------------------------
@@ -66,7 +66,7 @@ const Home = () => {
 
     const onPageClick = (pageUrl) => {
         goToPage(pageUrl);
-    }
+    };
 
 
     // ?--------------------------------------
@@ -102,8 +102,6 @@ const Home = () => {
                         goToSelectedPage={onPageClick}
                         goToNextPage={charactersMetaData.next}
                         goToPrevPage={charactersMetaData.prev}
-                    // canGoPrevPage={charactersMetaData.prev !== null}
-                    // canGoNextPage={charactersMetaData.next !== null}
                     />
                 }
 

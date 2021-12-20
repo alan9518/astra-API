@@ -33,7 +33,7 @@ const theme = {
 };
 
 const WhiteTheme = ({ children }) =>
-    (<ThemeProvider theme={theme}> {children}  </ThemeProvider>)
+    (<ThemeProvider theme={theme}> {children}  </ThemeProvider>);
 
 
 WhiteTheme.propTypes = {
@@ -41,6 +41,6 @@ WhiteTheme.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
     ]).isRequired
-}
+};
 
 export default WhiteTheme;

@@ -8,7 +8,8 @@
 import {
     BrowserRouter,
     Route,
-    Routes
+    Routes,
+    Redirect
 } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 
@@ -17,24 +18,7 @@ import { CharactersProvider } from "providers/CharactersProvider";
 import appRoutes from 'router';
 
 
-// const GlobalStyle = createGlobalStyle`
-//         * {
-//             box-sizing: border-box;
-//             margin: 0;
-//             padding: 0;
-//         }
 
-//        body {
-//             margin: 0;
-//             padding: 0;
-//             overflow-x: hidden;
-//             -webkit-font-smoothing: antialiased;
-//             -moz-osx-font-smoothing: grayscale;
-//         }
-//         min-height: 100vh;
-//         background-color: #dce1df47;
-//     }
-// `;
 const GlobalStyle = createGlobalStyle`
 
 * {
@@ -61,9 +45,11 @@ const App = () => (
                     <Routes>
 
                         {
-                            appRoutes.map((route) => (
-                                <Route path="/" element={route.component} key={route.routeName} />
-                            ))
+                            appRoutes.map((route) => {
+                                if (route.redirect)
+                                    return <Redirect from="*" to="/" />
+                                return <Route path={route.path} element={route.component} key={route.routeName} />
+                            })
                         }
                     </Routes>
                 </BrowserRouter>

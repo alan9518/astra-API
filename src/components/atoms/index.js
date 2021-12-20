@@ -12,4 +12,4 @@ export {
     Button,
     InputText,
     Title
-}
+};

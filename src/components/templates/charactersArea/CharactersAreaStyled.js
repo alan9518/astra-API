@@ -16,12 +16,29 @@ export const CharactersGridContainer = styled(container)`
     padding: 1em 0;     
 `;
 
-export const CharactersRow = styled(flexContainerRowSpaceBetween)``;
+export const CharactersRow = styled(flexContainerRowSpaceBetween)`
+    @media screen 
+    and (min-width : 320px)
+    and (max-width : 720px)
+    and (orientation: portrait) 
+    {
+    flex-direction : column;
+    }
+`;
 
 export const CharactersColumn = styled(flexContainerColumnCenter)`
     max-width : ${props => props.width ? props.width : '100%'};
     width: 100%;
     height: 100%;
+
+    @media screen 
+    and (min-width : 320px)
+    and (max-width : 720px)
+    and (orientation: portrait) 
+    {
+        max-width : 100%;
+        width: 100%;
+    }
 `;
 
 
