@@ -11,7 +11,6 @@ export const CharactersProvider = ({ children }) => {
     // when the state actually changes
     const [charactersState, dispatch] = useReducer(charactersReducer, charactersIntialState);
     const store = useMemo(() => ({ charactersState, dispatch }), [charactersState]);
-    console.log("🚀 ~ file: CharactersProvider.js ~ line 14 ~ CharactersProvider ~ store", store);
 
     return (
         <CharactersContext.Provider value={store}>

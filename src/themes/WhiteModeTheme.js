@@ -23,6 +23,8 @@ const theme = {
         extraSmall: "0.8em",
         small: "1em",
         medium: "1.2em",
+        big: "2em",
+        extraBig: "4em"
     },
     borderRadius: '5px',
     borderRadiusBig: '16px',

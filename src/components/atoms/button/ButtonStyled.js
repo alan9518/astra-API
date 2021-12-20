@@ -10,14 +10,13 @@ import styled, { css } from 'styled-components';
 
 export const ButtonStyled = styled.button`
     border-radius: ${props => props.theme.borderRadius};
-    text-transform: uppercase;
     text-align: center;
     font-style: normal;
     font-variant-ligatures: normal;
     font-variant-caps: normal;
     font-variant-numeric: normal;
     font-variant-east-asian: normal;
-    font-weight: 400;
+    font-weight: 800;
     font-stretch: normal;
     cursor:pointer;
     line-height: 30px;

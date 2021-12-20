@@ -21,6 +21,7 @@ const Title = ({
     size = "",
     type = "",
     color = "darkBlack",
+    onClick = null
 }) => {
 
     let tagName = '';
@@ -41,10 +42,7 @@ const Title = ({
             as={tagName}
             type={type}
             color={color}
-        // onClick={onClick}
-        // font={font}
-        // underline={underline}
-        // role={onClick !== null ? "button" : "text"}
+            onClick={onClick}
         >
             {titleText}
 
@@ -61,6 +59,8 @@ const Title = ({
 Title.defaultProps = {
     size: '',
     color: '',
+    type: '',
+    onClick: null,
 };
 
 // -------------------------------------- 
@@ -69,8 +69,9 @@ Title.defaultProps = {
 Title.propTypes = {
     titleText: PropTypes.string.isRequired,
     size: PropTypes.string,
-    type: PropTypes.string.isRequired,
+    type: PropTypes.string,
     color: PropTypes.string,
+    onClick: PropTypes.func
 
 };
 

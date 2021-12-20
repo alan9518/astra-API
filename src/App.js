@@ -5,34 +5,76 @@
 ** Alan Medina Silva
 ** ========================================================================== */
 
-
 import {
     BrowserRouter,
     Route,
-    // Navigate,
     Routes
 } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
 
 import WhiteTheme from 'themes/WhiteModeTheme';
 import { CharactersProvider } from "providers/CharactersProvider";
 import appRoutes from 'router';
 
 
-const App = () => (
-    <CharactersProvider>
-        <WhiteTheme>
-            <BrowserRouter>
-                <Routes>
+// const GlobalStyle = createGlobalStyle`
+//         * {
+//             box-sizing: border-box;
+//             margin: 0;
+//             padding: 0;
+//         }
 
-                    {
-                        appRoutes.map((route) => (
-                            <Route path="/" element={route.component} key={route.routeName} />
-                        ))
-                    }
-                </Routes>
-            </BrowserRouter>
-        </WhiteTheme>
-    </CharactersProvider>
+//        body {
+//             margin: 0;
+//             padding: 0;
+//             overflow-x: hidden;
+//             -webkit-font-smoothing: antialiased;
+//             -moz-osx-font-smoothing: grayscale;
+//         }
+//         min-height: 100vh;
+//         background-color: #dce1df47;
+//     }
+// `;
+const GlobalStyle = createGlobalStyle`
+
+* {
+    box-sizing: border-box;
+}
+  body {
+    
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #dce1df47;
+  }
+`;
+
+
+const App = () => (
+
+    <>
+        <GlobalStyle />
+        <CharactersProvider>
+            <WhiteTheme>
+
+                <BrowserRouter>
+                    <Routes>
+
+                        {
+                            appRoutes.map((route) => (
+                                <Route path="/" element={route.component} key={route.routeName} />
+                            ))
+                        }
+                    </Routes>
+                </BrowserRouter>
+
+            </WhiteTheme>
+        </CharactersProvider>
+    </>
 );
+
+
+
+
 
 export default App;

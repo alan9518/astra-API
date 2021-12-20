@@ -14,12 +14,18 @@ import endpoints from "api/endpoints";
 // ? if and ID is provided
 // ? @params {ID} character id not required
 // ?--------------------------------------
-export const getCharacters = (characterID = null) => {
+export const getCharacters = (characterID = null, searchFilter = '', filterOption = '', newPageUrl = '') => {
 
     // Define the url to call
-    const serviceUrl = characterID !== null
+    let serviceUrl = characterID !== null
         ? `${endpoints.getAllCharacters}/${characterID}`
         : endpoints.getAllCharacters;
+
+    if (filterOption !== '' && searchFilter !== '')
+        serviceUrl = `${serviceUrl}?${filterOption}=${searchFilter}`;
+
+    if (newPageUrl !== '')
+        serviceUrl = newPageUrl;
 
     return axiosService.axiosPetition('get', serviceUrl, null, null)
         .then(data => ([data, undefined]))
@@ -27,4 +33,13 @@ export const getCharacters = (characterID = null) => {
             Promise.resolve([undefined, error]);
         });
 
-}
+};
+
+
+// export const getCharactersWithPagination = (nextPageUrl) => axiosService.axiosPetition('get', nextPageUrl, null, null)
+//     .then(data => ([data, undefined]))
+//     .catch(error => {
+//         Promise.resolve([undefined, error]);
+//     });
+
+

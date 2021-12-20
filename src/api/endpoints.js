@@ -12,6 +12,8 @@ const endpoints = {
     // get all the characters
     // Verbose : GET
     // To get a single character ad the character's id
+    // To filter character add like this
+    // /?name=rick&status=alive
     getAllCharacters: `${apiDomain}/character`
 
 };

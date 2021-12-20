@@ -10,7 +10,10 @@
 // --------------------------------------
 export const charactersIntialState = {
     charactersData: null,
-    selectedCharacter: null
+    charactersMetaData: null,
+    selectedCharacter: null,
+    searchValue: '',
+    currentPage: null
 };
 
 // --------------------------------------
@@ -19,7 +22,10 @@ export const charactersIntialState = {
 // --------------------------------------
 export const actionsTypes = {
     setCharactersData: 'SET_CHARACTERS_DATA',
-    setSelectedCharacter: 'SET_SELECTED_CHARACTER'
+    setCharactersMetaData: 'SET_CHARACTERS_METADATA',
+    setSelectedCharacter: 'SET_SELECTED_CHARACTER',
+    setSearchValue: 'SET_SEARCH_VALUE',
+    setCurrentPage: 'SET_CURRENT_PAGE'
 };
 
 
@@ -32,8 +38,14 @@ export const charactersReducer = (state, action) => {
     switch (action.type) {
         case actionsTypes.setCharactersData:
             return { ...state, charactersData: action.payload };
+        case actionsTypes.setCharactersMetaData:
+            return { ...state, charactersMetaData: action.payload };
         case actionsTypes.setSelectedCharacter:
             return { ...state, selectedCharacter: action.payload };
+        case actionsTypes.setSearchValue:
+            return { ...state, searchValue: action.payload };
+        case actionsTypes.setCurrentPage:
+            return { ...state, currentPage: action.payload };
         default:
             return state;
     }

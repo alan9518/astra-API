@@ -1,5 +1,6 @@
 /* ==========================================================================
-** 
+** Characters Area
+** This template manages how to render the section based on the props
 ** 16/12/2021
 ** Alan Medina Silva
 ** ========================================================================== */
@@ -10,13 +11,17 @@
 // --------------------------------------
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { Card } from 'components/molecules';
+import { Title } from 'components/atoms';
+
 import noCharacterSelected from 'assets/noCharacterSelected.jpeg';
 import {
     CharactersGridContainer,
     CharactersRow,
     CharactersColumn,
-    CharactersGridRow
+    CharactersGridRow,
+    NoDataContainer
 } from './CharactersAreaStyled';
 /**
 * CharactersArea Component
@@ -25,16 +30,22 @@ import {
 * @example
 * <CharactersArea/>
 */
-const CharactersArea = ({ charactersData, selectedCharacter, onCharacterCardClick }) => {
-
-    console.log("🚀 ~ file: CharactersArea.js ~ line 29 ~ CharactersArea ~ selectedCharacter", selectedCharacter);
-
+const CharactersArea = ({
+    charactersData,
+    selectedCharacter,
+    onCharacterCardClick,
+    loadingData,
+    errorOnData,
+    showInitialStateMessage }) => {
 
 
     // ?--------------------------------------
     // ? Render the list of cards
     // ?--------------------------------------
     const renderCharactersCards = () => {
+
+
+
         if (!charactersData)
             return null;
 
@@ -47,15 +58,53 @@ const CharactersArea = ({ charactersData, selectedCharacter, onCharacterCardClic
 
     };
 
+    // ?--------------------------------------
+    // ? Render the Selected Character Card INfo
+    // ?--------------------------------------
     const renderSelectedCharacterInfo = () => {
         let componentToRender = null;
+
+        if (!charactersData)
+            return null;
+
         if (!selectedCharacter)
-            componentToRender = <Card cardData={{ image: noCharacterSelected, name: 'No Character Selected' }} bigCard />;
+            componentToRender = <Card cardData={{ image: noCharacterSelected, name: 'No Character Selected', noData: true }} bigCard />;
         else
             componentToRender = <Card cardData={selectedCharacter} bigCard />;
 
         return componentToRender;
-    }
+    };
+
+
+    // ?--------------------------------------
+    // ? Render Skeleton Loader for the cards
+    // ?--------------------------------------
+    const renderSkeletonCards = () => Array(12).fill().map(() => <Card cardData={null} loadingCard key={Math.random()} />);
+
+
+    // ?--------------------------------------
+    // ? Show the message to start using the app
+    // ?--------------------------------------
+    if (showInitialStateMessage)
+        return (
+            <NoDataContainer>
+                <Title titleText='To start the App, type the name of a character' size="l" type="accent-text" />
+            </NoDataContainer>
+        );
+
+
+    // ?--------------------------------------
+    // ? If there's an error; show the error
+    // ? Exit early if there is no data and no error
+    // ?--------------------------------------
+    if (!loadingData && errorOnData !== '')
+        return (
+            <NoDataContainer>
+                <Title titleText={errorOnData} size="l" type="accent-text" />
+            </NoDataContainer>
+        );
+
+
 
     return (
         <CharactersGridContainer>
@@ -66,7 +115,11 @@ const CharactersArea = ({ charactersData, selectedCharacter, onCharacterCardClic
 
                 <CharactersColumn width="60%">
                     <CharactersGridRow>
-                        {renderCharactersCards()}
+                        {
+                            loadingData === true ?
+                                renderSkeletonCards() :
+                                renderCharactersCards()
+                        }
                     </CharactersGridRow>
                 </CharactersColumn>
             </CharactersRow>
@@ -79,15 +132,21 @@ const CharactersArea = ({ charactersData, selectedCharacter, onCharacterCardClic
 // -------------------------------------- 
 CharactersArea.defaultProps = {
     charactersData: null,
-    selectedCharacter: null
+    selectedCharacter: null,
+    loadingData: false,
+    errorOnData: '',
+    showInitialStateMessage: true
 };
 
 // -------------------------------------- 
 // Define PropTypes 
 // -------------------------------------- 
 CharactersArea.propTypes = {
-    charactersData: PropTypes.object,
-    selectedCharacter: PropTypes.array,
+    charactersData: PropTypes.array,
+    selectedCharacter: PropTypes.object,
+    loadingData: PropTypes.bool,
+    errorOnData: PropTypes.string,
+    showInitialStateMessage: PropTypes.bool
 };
 // --------------------------------------
 // Export Component

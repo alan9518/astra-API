@@ -4,7 +4,9 @@
 ** Alan Medina Silva
 ** ========================================================================== */
 import Card from './card';
+import SkeletonLoader from './skeleton';
 
 export {
-    Card
+    Card,
+    SkeletonLoader
 };

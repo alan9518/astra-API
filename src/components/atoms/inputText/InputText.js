@@ -24,24 +24,26 @@ const InputText = ({
   isRequired = false,
   onInputChange,
   placeholder = "",
+  size = "small",
   onFocus = null,
-}) => {
-  console.log("🚀 ~ file: InputText.js ~ line 30 ~ placeholder", placeholder);
-  return (
+}) => (
 
-    <InputStyled
-      name={name}
-      value={value}
-      id={name}
-      type={type}
-      required={isRequired}
-      onChange={onInputChange}
-      onFocus={onFocus}
-      size="small"
-    />
+  // return (
 
-  );
-};
+  <InputStyled
+    name={name}
+    value={value}
+    id={name}
+    type={type}
+    required={isRequired}
+    onChange={onInputChange}
+    onFocus={onFocus}
+    size={size}
+    placeholder={placeholder}
+  />
+
+  // );
+);
 
 // -------------------------------------- 
 // Define Default props
@@ -50,6 +52,7 @@ InputText.defaultProps = {
   name: '',
   value: '',
   type: '',
+  size: 'small',
   placeholder: '',
   isRequired: false,
   onInputChange: null,
@@ -64,6 +67,7 @@ InputText.propTypes = {
   name: PropTypes.string,
   value: PropTypes.string,
   type: PropTypes.string,
+  size: PropTypes.string,
   placeholder: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object

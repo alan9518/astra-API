@@ -17,14 +17,11 @@ import PropTypes from 'prop-types';
 * @example
 * <Form> <Form/>
 */
-const Form = ({ children }) => {
-    console.log('action form')
-    return (
-        <form >
-            {children}
-        </form>
-    )
-}
+const Form = ({ children }) => (
+    <form >
+        {children}
+    </form>
+);
 // -------------------------------------- 
 // Define PropTypes 
 // -------------------------------------- 

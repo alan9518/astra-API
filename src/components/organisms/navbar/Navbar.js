@@ -12,16 +12,13 @@ import { NavbarContainerStyled, NavbarContentStyled } from './NavbarStyled';
 * @example
 * <navbar/>
 */
-const Navbar = (props) => {
-  console.log("🚀 ~ file: navbar.js ~ line 15 ~ Navbar ~ props", props);
-  return (
-    <NavbarContainerStyled as="nav" >
-      <NavbarContentStyled>
-        <img src={logo} alt="Rick and Morty Api client" />
-      </NavbarContentStyled>
-    </NavbarContainerStyled>
-  );
-};
+const Navbar = () => (
+  <NavbarContainerStyled as="nav" >
+    <NavbarContentStyled>
+      <img src={logo} alt="Rick and Morty Api client" />
+    </NavbarContentStyled>
+  </NavbarContainerStyled>
+);
 // -------------------------------------- 
 // Define PropTypes 
 // -------------------------------------- 

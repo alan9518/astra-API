@@ -5,7 +5,7 @@
 ** Alan Medina Silva
 ** ========================================================================== */
 import styled from 'styled-components';
-import { container, flexContainerColumnCenter, flexContainerRowSpaceBetween } from 'shared/globalStyled';
+import { container, flexContainerColumnCenter, flexContainerRowCenter, flexContainerRowSpaceBetween } from 'shared/globalStyled';
 
 
 export const CharactersGridContainer = styled(container)`
@@ -30,4 +30,11 @@ export const CharactersGridRow = styled(flexContainerRowSpaceBetween)`
     article {
         flex : 1;
     }
+`;
+
+
+export const NoDataContainer = styled(flexContainerRowCenter)`
+    height: 200px;
+    align-items: flex-start;
+    margin-top: 15vh;
 `;

@@ -13,8 +13,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { PageContainerStyled } from './PageStyled';
 
-console.log("🚀 ~ file: Page.js ~ line 15 ~ PageContainerStyled", PageContainerStyled);
-// import { NavbarContainerStyled } from './NavbarStyled';
 /**
 * Page Component
 * 
@@ -22,14 +20,12 @@ console.log("🚀 ~ file: Page.js ~ line 15 ~ PageContainerStyled", PageContaine
 * @example
 * <Page/>
 */
-const Page = ({ children }) => {
-    console.log("🚀 ~ file: Page.js ~ line 23 ~ Page ~ children", children);
-    return (
-        <PageContainerStyled>
-            {children}
-        </PageContainerStyled>
-    )
-}
+const Page = ({ children }) => (
+    <PageContainerStyled>
+        {children}
+    </PageContainerStyled>
+);
+
 // -------------------------------------- 
 // Define PropTypes 
 // -------------------------------------- 

@@ -13,6 +13,8 @@ export const InputStyled = styled.input`
     border-radius: ${props => props.theme.borderRadius};
     border : 0;
     font-family : ${props => props.theme?.fonts?.base || 'roboto'};
+    padding : 1em;
+    margin : 0 1em;
     ${props => {
         switch (props.size) {
             case "xsmall":
@@ -30,7 +32,8 @@ export const InputStyled = styled.input`
             `;
             case "medium":
                 return ` 
-                max-width: 250px;
+                max-width: 450px;
+                width: 100%;
                 min-width: 200px;
                 min-height: 50px;
                 max-height: 70px;

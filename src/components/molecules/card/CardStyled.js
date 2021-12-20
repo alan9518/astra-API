@@ -5,7 +5,7 @@
 ** Alan Medina Silva
 ** ========================================================================== */
 import styled, { css } from 'styled-components';
-import { flexContainerColumnCenter } from 'shared/globalStyled';
+import { flexContainerColumnCenter, flexContainerRowCenterSpacedBetween } from 'shared/globalStyled';
 
 export const CardContainerStyled = styled(flexContainerColumnCenter)`
     width: '22%'; 
@@ -22,13 +22,16 @@ export const CardContainerStyled = styled(flexContainerColumnCenter)`
     transition: all 0.1s ease-in;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor:pointer;
-
-   
-    
     &:hover {
         top: -2px;
         box-shadow: ${props => props.theme.hoverBoxShadow};
 
+    }
+
+    ul {
+        width: 100%;
+        padding: 1em;
+        list-style: none;
     }
 
     h4,p {
@@ -44,6 +47,12 @@ export const CardContainerStyled = styled(flexContainerColumnCenter)`
         border-radius: 50%;
     }
 
+    .avatar-skeleton {
+        width: 55px;
+        height: 55px;
+        margin: 10px;
+    }
+
     ${props => props.bigCard === true && css`
         width : 100%;
         min-height : 450px;
@@ -51,7 +60,7 @@ export const CardContainerStyled = styled(flexContainerColumnCenter)`
 
         img {
             object-fit: contain;
-            height: 300px;
+            height: 250px;
             border-radius: 50%;
         }
     `}
@@ -59,6 +68,12 @@ export const CardContainerStyled = styled(flexContainerColumnCenter)`
 
 
 
+`;
+
+
+export const CardDetailsListItemDetails = styled(flexContainerRowCenterSpacedBetween)`
+    padding : 0.4em;
+    
 `;
 
 

@@ -8,33 +8,48 @@ import { useState, useCallback } from 'react';
 import { useCharactersDataContext } from 'contexts/CharactersContext';
 import { actionsTypes } from 'reducers/CharactersReducer';
 import { getCharacters } from 'services/CharactersService';
+import { getErrorMessageFromHTTPRequest } from 'shared/utils';
 
 
 // --------------------------------------
 // Create Hook
 // --------------------------------------
 const useCharacters = () => {
-    // const [selectedChar, setSelectedChar] = useState(null);
-    // const [characters, setCharacters] = useState(null);
-    // const [searchCharInputValue, setSearchCharInputValue] = useState('');
+
+
     const [charactersDataStatus, setCharactersDataStatus] = useState({
         loading: false,
         error: ''
     });
 
     const { charactersState, dispatch } = useCharactersDataContext();
-    const { charactersData, selectedCharacter } = charactersState;
+    const { charactersData, charactersMetaData, selectedCharacter, searchValue, currentPage } = charactersState;
+    console.log("🚀 ~ file: useCharacters.js ~ line 27 ~ useCharacters ~ currentPage", currentPage);
 
 
 
-    const updateCharactersState = useCallback((newCharactersData) => {
-        dispatch({ type: actionsTypes.setCharactersData, payload: newCharactersData.results });
-        setCharactersDataStatus({ loading: false, error: '' });
-    }, []);
-
-
-    const updateSelectedCharacterState = useCallback((newSelectedChart) => {
-        dispatch({ type: 'SET_SELECTED_CHARACTER', payload: newSelectedChart });
+    // ?--------------------------------------
+    // ? Update the global state, call the reducer
+    // ? set values dianmically
+    // ?--------------------------------------
+    const updateGlobalState = useCallback((stateObject, newValue) => {
+        let valueToUpdate = null;
+        switch (stateObject) {
+            case 'characters':
+                valueToUpdate = actionsTypes.setCharactersData;
+                break;
+            case 'charactersMeta':
+                valueToUpdate = actionsTypes.setCharactersMetaData;
+                break;
+            case 'selectedChar':
+                valueToUpdate = actionsTypes.setSelectedCharacter;
+                break;
+            case 'search': valueToUpdate =
+                actionsTypes.setSearchValue;
+                break;
+            default: valueToUpdate = null;
+        }
+        dispatch({ type: valueToUpdate, payload: newValue });
     }, []);
 
 
@@ -43,27 +58,53 @@ const useCharacters = () => {
     // ? useCallback improves performance
     // ? by only calling the function with a manual triger
     // ?--------------------------------------
-    const getCharactersData = useCallback(async (characterID = null) => {
+    const getCharactersData = useCallback(async (characterID = null, filterOption = '', newPageUrl = '') => {
+
         setCharactersDataStatus({ loading: true, error: '' });
-        const [charactersPromiseData, charactersPromiseError] = await getCharacters(characterID);
+
+        const [charactersPromiseData, charactersPromiseError] = await getCharacters(characterID, searchValue, filterOption, newPageUrl);
 
         // Handle connectivity errors
-        if (charactersPromiseError) {
-            setCharactersDataStatus({ loading: false, error: 'Error loading the characters, plese try again later' });
+        if (charactersPromiseError || charactersPromiseData.error) {
+            const errorMessage = charactersPromiseError ? getErrorMessageFromHTTPRequest(charactersPromiseError) : getErrorMessageFromHTTPRequest(charactersPromiseData);
 
-            updateCharactersState(null);
+            setCharactersDataStatus({ loading: false, error: errorMessage });
+            updateGlobalState('characters', []);
+            return;
         }
 
-        updateCharactersState(charactersPromiseData.data);
+        updateGlobalState('characters', charactersPromiseData.data.results);
+        updateGlobalState('charactersMeta', charactersPromiseData.data.info);
+        setCharactersDataStatus({ loading: false, error: '' });
 
-    }, []);
+    }, [searchValue, charactersMetaData]);
 
 
 
-
+    // ?--------------------------------------
+    // ? Set Value of selected character
+    // ?--------------------------------------
     const setSelectedCharacter = useCallback((characterData) => {
-        updateSelectedCharacterState(characterData);
+        updateGlobalState('selectedChar', characterData);
     }, []);
+
+
+    // ?--------------------------------------
+    // ? Set Value of Search Input
+    // ?--------------------------------------
+    const setSearchValue = useCallback((newSearchValue) => {
+        updateGlobalState('search', newSearchValue);
+    }, []);
+
+
+
+    const goToPage = useCallback(async (newPageUrl) => {
+
+        setCharactersDataStatus({ loading: true, error: '' });
+        await getCharactersData(null, null, newPageUrl);
+
+    }, []);
+
 
 
 
@@ -74,10 +115,15 @@ const useCharacters = () => {
     return {
         getCharactersData,
         setSelectedCharacter,
+        setSearchValue,
+        goToPage,
         charactersDataLoading: charactersDataStatus.loading,
+        charactersDataLoadingError: charactersDataStatus.error,
         charactersDataStatus,
         charactersData,
+        charactersMetaData,
         selectedCharacter,
+        searchValue
 
     };
 };
