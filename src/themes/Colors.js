@@ -1,15 +1,14 @@
 /* ==========================================================================
-** Atoms Import/Exports Controller
+** Colors Definition for all themes
 ** 15/12/2021
 ** Alan Medina Silva
 ** ========================================================================== */
 
-import Button from './button';
-import InputText from './inputText';
-import Title from './title';
-
-export {
-    Button,
-    InputText,
-    Title
+const colors = {
+    base: '#dce1df47',
+    main: '#00afc6',
+    accent: '#98d18e',
+    whiteText: '#fff',
 };
+
+export default colors;
