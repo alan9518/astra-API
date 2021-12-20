@@ -16,8 +16,8 @@ export const CharactersProvider = ({ children }) => {
         <CharactersContext.Provider value={store}>
             {children}
         </CharactersContext.Provider>
-    )
-}
+    );
+};
 
 CharactersProvider.propTypes = {
     children: PropTypes.oneOfType([
