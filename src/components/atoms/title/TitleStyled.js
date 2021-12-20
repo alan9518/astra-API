@@ -43,7 +43,7 @@ export const TitleStyled = styled.h1`
 
 
 
-            default: return ``
+            default: return ``;
         }
 
     }}

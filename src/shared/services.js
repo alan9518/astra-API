@@ -23,10 +23,7 @@ function axiosPetition(restMethod, endPoint, params = {}, customHeaders = {}) {
             data = response;
         }
         return data;
-    }).catch((err) => {
-        console.log("🚀 ~ file: services.js ~ line 26 ~ axiosPetition ~ err", err);
-        return { "error": err };
-    });
+    }).catch((err) => ({ "error": err }));
 }
 
 export const axiosService = {

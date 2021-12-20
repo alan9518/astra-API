@@ -47,8 +47,8 @@ const App = () => (
                         {
                             appRoutes.map((route) => {
                                 if (route.redirect)
-                                    return <Route path="*" element={<Navigate to={route.to} />} />
-                                return <Route path={route.path} element={route.component} key={route.routeName} />
+                                    return <Route path="*" element={<Navigate to={route.to} />} />;
+                                return <Route path={route.path} element={route.component} key={route.routeName} />;
                             })
                         }
                     </Routes>
