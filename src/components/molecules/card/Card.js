@@ -9,8 +9,6 @@
 // --------------------------------------
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Skeleton from 'react-loading-skeleton';
-// import 'react-loading-skeleton/dist/skeleton.css';
 import { SkeletonLoader } from 'components/molecules';
 import { Title } from 'components/atoms';
 import { CardContainerStyled, CardDetailsListItemDetails } from './CardStyled';

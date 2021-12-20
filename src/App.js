@@ -9,7 +9,7 @@ import {
     BrowserRouter,
     Route,
     Routes,
-    Redirect
+    Navigate
 } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 
@@ -47,7 +47,7 @@ const App = () => (
                         {
                             appRoutes.map((route) => {
                                 if (route.redirect)
-                                    return <Redirect from="*" to="/" />
+                                    return <Route path="*" element={<Navigate to={route.to} />} />
                                 return <Route path={route.path} element={route.component} key={route.routeName} />
                             })
                         }
